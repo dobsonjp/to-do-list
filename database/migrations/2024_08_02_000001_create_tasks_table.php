@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateTodoListTable extends Migration
+class CreateTasksTable extends Migration
 {
     public function up()
     {
@@ -13,8 +13,8 @@ class CreateTodoListTable extends Migration
             $table->string('name');
             $table->longText('description');
             $table->boolean('completed')->default(false);
+            $table->boolean('deleted')->default(false);
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
