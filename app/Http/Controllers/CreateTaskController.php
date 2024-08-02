@@ -14,11 +14,7 @@ class CreateTaskController extends Controller
         return response()->json([
             'status' => 200,
             'message' => 'Task created.',
-            'data' => [
-                'name' => $task->name,
-                'description' => $task->description,
-                'completed' => $task->completed,
-            ]
+            'data' => $task,
         ]);
     }
 }

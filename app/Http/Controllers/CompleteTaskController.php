@@ -16,11 +16,7 @@ class CompleteTaskController extends Controller
             return response()->json([
                 'status' => 200,
                 'message' => 'Task marked as completed.',
-                'data' => [
-                    'name' => $task->name,
-                    'description' => $task->description,
-                    'completed' => $task->completed,
-                ]
+                'data' => $task,
             ]);
         } catch (\Exception $e) {
             var_dump($e->getMessage());die;
