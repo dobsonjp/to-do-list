@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CompleteTaskRequest;
+use App\Http\Requests\GenericRequest;
 use App\Models\Task;
 
 class CompleteTaskController extends Controller
 {
-    public function __invoke(CompleteTaskRequest $request, Task $task)
+    public function __invoke(GenericRequest $request, Task $task)
     {
         try {
             $task->completed = true;

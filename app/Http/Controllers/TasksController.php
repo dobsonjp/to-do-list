@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\TasksRequest;
+use App\Http\Requests\GenericRequest;
 use App\Models\Task;
 
 class TasksController extends Controller
 {
-    public function __invoke(TasksRequest $request)
+    public function __invoke(GenericRequest $request)
     {
         return response()->json(Task::all());
     }
