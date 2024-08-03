@@ -17,11 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('tasks');
-});
+Route::get('/', TasksController::class);
 
-Route::get('/tasks', TasksController::class)->name('tasks');
 Route::post('/create', CreateTaskController::class)->name('create.task');
 Route::post('/delete/{task}', DeleteTaskController::class)->name('delete.task');
 Route::post('/complete/{task}', CompleteTaskController::class)->name('complete.task');

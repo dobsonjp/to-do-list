@@ -9,6 +9,6 @@ class TasksController extends Controller
 {
     public function __invoke(GenericRequest $request)
     {
-        return response()->json(Task::all());
+        return view('tasks', ['tasks' => Task::all()]);
     }
 }
