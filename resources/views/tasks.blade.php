@@ -12,5 +12,68 @@
 </head>
 <body>
 
+<img src="{{ asset('img/logo.png') }}" />
+<table class="table">
+    <tbody>
+        <tr>
+            <td>
+                <div>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td><input type="text" placeholder="Insert task name"></td>
+                            </tr>
+                            <tr>
+                                <td><a href="{{ route('create.task') }}" class="btn btn-primary mb-3">Add</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+            <td>
+                <div class="container mt-5">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th colspan="3">Task</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse($tasks as $task)
+                                <tr>
+                                    <td>{{ $task->id }}</td>
+                                    <td>
+                                        @if($task->deleted)
+                                        <s>
+                                        @endif
+                                            {{ $task->name }}
+                                        @if($task->deleted)
+                                        </s>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if(!$task->completed)
+                                            <a href="{{ route('complete.task', $task->id) }}" class="btn btn-secondary">✅</a>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if(!$task->deleted)
+                                            <a href="{{ route('delete.task', $task->id) }}" class="btn btn-secondary">❌</a>
+                                        @endif
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="4">No tasks found</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
 </body>
 </html>
