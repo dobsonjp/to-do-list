@@ -10,27 +10,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
 </head>
-<body>
+<body style="background-color:#e8e8e8">
 
-<img src="{{ asset('img/logo.png') }}" />
+<img src="{{ asset('img/logo.png') }}" style="padding:25px"/>
 <table class="table">
     <tbody>
         <tr>
             <td>
                 <div>
-                    <form method="POST" action="{{ route('create.task') }}">
+                    <form method="POST" action="{{ route('create.task') }}" style="padding: 10px">
                         @csrf
                         <input type="text" name="name"
                                id="name" class="form-control"
                                placeholder="Insert task name"
                         >
-                        <button type="submit" class="btn btn-primary">Add</button>
+                        <button style="width:100%" type="submit" class="btn btn-primary">Add</button>
                     </form>
                 </div>
             </td>
             <td>
                 <div class="container mt-5">
-                    <table class="table">
+                    <table class="table" style="border: thin solid darkgrey;border-radius: 10px">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -77,5 +77,6 @@
         </tr>
     </tbody>
 </table>
+<p style="text-align:center;font-size:x-small">Copyright © 2020 All Right Reserved</p>
 </body>
 </html>
