@@ -18,16 +18,25 @@
         <tr>
             <td>
                 <div>
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <td><input type="text" placeholder="Insert task name"></td>
-                            </tr>
-                            <tr>
-                                <td><a href="{{ route('create.task') }}" class="btn btn-primary mb-3">Add</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
+{{--                    this wants to be a form--}}
+{{--                    <table class="table">--}}
+{{--                        <tbody>--}}
+{{--                            <tr>--}}
+{{--                                <td><input type="text" placeholder="Insert task name"></td>--}}
+{{--                            </tr>--}}
+{{--                            <tr>--}}
+{{--                                <td><a href="{{ route('create.task') }}" class="btn btn-primary mb-3">Add</a></td>--}}
+{{--                            </tr>--}}
+{{--                        </tbody>--}}
+{{--                    </table>--}}
+                    <form method="POST" action="{{ route('create.task') }}">
+                        @csrf
+                        <input type="text" name="name"
+                               id="name" class="form-control"
+                               placeholder="Insert task name"
+                        >
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </form>
                 </div>
             </td>
             <td>

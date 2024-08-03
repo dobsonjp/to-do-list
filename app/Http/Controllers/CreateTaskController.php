@@ -11,10 +11,6 @@ class CreateTaskController extends Controller
     {
         $task = Task::create($request->input());
 
-        return response()->json([
-            'status' => 200,
-            'message' => 'Task created.',
-            'data' => $task,
-        ]);
+        return redirect('/');
     }
 }
