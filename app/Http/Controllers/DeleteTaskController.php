@@ -12,10 +12,6 @@ class DeleteTaskController extends Controller
         $task->deleted = true;
         $task->save();
 
-        return response()->json([
-            'status' => 200,
-            'message' => 'Task deleted successfully',
-            'data' => $task,
-        ]);
+        return redirect('/');
     }
 }

@@ -18,17 +18,6 @@
         <tr>
             <td>
                 <div>
-{{--                    this wants to be a form--}}
-{{--                    <table class="table">--}}
-{{--                        <tbody>--}}
-{{--                            <tr>--}}
-{{--                                <td><input type="text" placeholder="Insert task name"></td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td><a href="{{ route('create.task') }}" class="btn btn-primary mb-3">Add</a></td>--}}
-{{--                            </tr>--}}
-{{--                        </tbody>--}}
-{{--                    </table>--}}
                     <form method="POST" action="{{ route('create.task') }}">
                         @csrf
                         <input type="text" name="name"
@@ -62,13 +51,17 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @if(!$task->completed)
-                                            <a href="{{ route('complete.task', $task->id) }}" class="btn btn-secondary">✅</a>
+                                        @if(!$task->completed && !$task->deleted)
+                                            <form method="POST" action="{{ route('complete.task', $task->id) }}">
+                                                <input type="submit" value="✅">
+                                            </form>
                                         @endif
                                     </td>
                                     <td>
                                         @if(!$task->deleted)
-                                            <a href="{{ route('delete.task', $task->id) }}" class="btn btn-secondary">❌</a>
+                                            <form method="POST" action="{{ route('delete.task', $task->id) }}">
+                                                <input type="submit" value="❌">
+                                            </form>
                                         @endif
                                     </td>
                                 </tr>

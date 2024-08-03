@@ -12,10 +12,6 @@ class CompleteTaskController extends Controller
         $task->completed = true;
         $task->save();
 
-        return response()->json([
-            'status' => 200,
-            'message' => 'Task marked as completed.',
-            'data' => $task,
-        ]);
+        return redirect('/');
     }
 }
