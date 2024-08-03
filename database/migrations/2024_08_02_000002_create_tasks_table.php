@@ -8,10 +8,11 @@ class CreateTasksTable extends Migration
 {
     public function up()
     {
+        Schema::dropIfExists('tasks');
+
         Schema::create('tasks', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->longText('description');
+            $table->longText('name');
             $table->boolean('completed')->default(false);
             $table->boolean('deleted')->default(false);
             $table->timestamps();

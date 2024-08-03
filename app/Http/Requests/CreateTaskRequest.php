@@ -15,7 +15,6 @@ class CreateTaskRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'description' => 'string',
         ];
     }
 }

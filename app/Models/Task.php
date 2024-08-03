@@ -7,32 +7,19 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Task extends Model
 {
-    protected $fillable = ['name', 'description', 'completed', 'deleted'];
+    protected $fillable = ['name', 'completed', 'deleted'];
 
     protected $casts = [
         'completed' => 'boolean',
         'deleted' => 'boolean',
     ];
 
-    protected $name;
     protected $description;
     protected $completed;
 
     public function getRouteKeyName(): string
     {
-        return 'name';
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    public function getName(): string
-    {
-        return $this->name;
+        return 'id';
     }
 
     public function setDescription(string $description): self
