@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Task extends Model
 {
-    protected $fillable = ['name', 'completed', 'deleted'];
+    use SoftDeletes;
+
+    protected $fillable = ['name', 'completed'];
 
     protected $casts = [
         'completed' => 'boolean',
-        'deleted' => 'boolean',
     ];
 
     protected $description;
@@ -44,17 +45,5 @@ class Task extends Model
     public function getCompleted(): bool
     {
         return $this->completed;
-    }
-
-    public function setDeleted(bool $deleted): self
-    {
-        $this->deleted = $deleted;
-
-        return $this;
-    }
-
-    public function getDeleted(): bool
-    {
-        return $this->deleted;
     }
 }

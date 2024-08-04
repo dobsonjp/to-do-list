@@ -42,23 +42,23 @@
                                 <tr>
                                     <td>{{ $task->id }}</td>
                                     <td>
-                                        @if($task->deleted)
+                                        @if($task->completed)
                                         <s>
                                         @endif
                                             {{ $task->name }}
-                                        @if($task->deleted)
+                                        @if($task->completed)
                                         </s>
                                         @endif
                                     </td>
                                     <td>
-                                        @if(!$task->completed && !$task->deleted)
+                                        @if(!$task->completed)
                                             <form method="POST" action="{{ route('complete.task', $task->id) }}">
                                                 <input type="submit" value="✅">
                                             </form>
                                         @endif
                                     </td>
                                     <td>
-                                        @if(!$task->deleted)
+                                        @if(!$task->completed)
                                             <form method="POST" action="{{ route('delete.task', $task->id) }}">
                                                 <input type="submit" value="❌">
                                             </form>

@@ -9,8 +9,7 @@ class DeleteTaskController extends Controller
 {
     public function __invoke(GenericRequest $request, Task $task)
     {
-        $task->deleted = true;
-        $task->save();
+        $task->delete();
 
         return redirect('/');
     }
